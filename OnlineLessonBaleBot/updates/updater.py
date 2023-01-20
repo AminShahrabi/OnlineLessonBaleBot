@@ -1,4 +1,4 @@
-from bale import *
+from bale import Update, User,Updater
 from datetime import timedelta, datetime
 from constants import *
 from colorama import Fore
@@ -8,7 +8,6 @@ class RateLimitUser:
         self.user = user
         self.useage = 0
         self.last_use = datetime.now()
-        
     async def new_use(self, time: datetime):
         if self.is_rate_limited():
             return
@@ -46,6 +45,6 @@ class CustomUpdater(Updater):
                 await rate_limit.new_use(datetime.now())
                 if not rate_limit.is_rate_limited():
                     return await super().call_to_dispatch(update)
-        else:        
+        else:
             return await super().call_to_dispatch(update)
     
