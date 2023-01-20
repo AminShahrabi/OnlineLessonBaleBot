@@ -1,5 +1,4 @@
 import bale
-from datetime import datetime
 from user import *
 from constants import *
 from buttons import ButtonManager
@@ -32,8 +31,6 @@ class BaleBot(bale.Bot):
     async def on_ready(self):
         self.Debuger.started()
 
-
-        
     async def on_message(self,  message: bale.Message):
         try:
             self.users_id = message.author.user_id
@@ -70,19 +67,17 @@ class BaleBot(bale.Bot):
                     self.database.close_database()
 
             except:
-                pass
-            
-            try:
-                if message.content:
-                    self.database.add_log(message)
-
-
-                else:
-                    self.Debuger.print_sent_file(message)
-            
-            except :
-                pass
+                self.Debuger.print_sent_file(message)
                 
+            
+            if message.content:
+                self.database.add_log(message)
+
+
+            else:
+                self.Debuger.print_sent_file(message)
+        
+
 
 
 
