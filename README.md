@@ -24,6 +24,6 @@ Project is created with:
 ## Setup
 To run and test the bot , download project files and run the run.bat or bot.py file 😁
 to install needed packages just type:
-'''
+```
 pip install python_bale_bot
-'''
+```
