@@ -1,11 +1,12 @@
-from constants import *
+from constants import ALREADY_EXIST, SENT_ACCOUNT
+
 class Users:
     def __init__(self,db):
         self.db = db
 
-    def is_active(self, id):
+    def is_active(self, user_id):
         try:
-            self.db.cur.execute("SELECT * from users WHERE id = ?", [str(id)])
+            self.db.cur.execute("SELECT * from users WHERE id = ?", [str(user_id)])
             placeholder = self.db.cur.fetchone()
             if placeholder is not None:
                 return True
@@ -14,8 +15,8 @@ class Users:
         except Exception as e:
             print(e)
 
-    def is_admin(self, id):
-        self.db.cur.execute("SELECT * from users WHERE id = ?", [str(id)])
+    def is_admin(self, user_id):
+        self.db.cur.execute("SELECT * from users WHERE id = ?", [str(user_id)])
         placeholder = self.db.cur.fetchone()
         if placeholder[6] == "admin":
             return True
@@ -38,7 +39,7 @@ class Users:
                 return ALREADY_EXIST
 
         if ac == 0:
-            self.db.cur.execute(f"INSERT INTO users VALUES (?,?,?,?,?,?,?)", (message.user.user_id, message.user.first_name, 'None', 'No' , 1, 'Yes', 'No'))
+            self.db.cur.execute("INSERT INTO users VALUES (?,?,?,?,?,?,?)", (message.user.user_id, message.user.first_name, 'None', 'No' , 1, 'Yes', 'No'))
             self.db.commit()
             return SENT_ACCOUNT
 
