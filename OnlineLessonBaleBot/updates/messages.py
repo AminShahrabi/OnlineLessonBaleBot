@@ -1,12 +1,6 @@
-from email import message
 from bale import Components
-from sympy import O
-from tomlkit import date
-from buttons import ButtonManager
 from constants import *
-from datetime import timedelta, datetime
 from constants import *
-from colorama import init, Fore, Back, Style
 
 class MessageManger:
     def __init__(self, button, bot, database):
@@ -83,12 +77,11 @@ class MessageManger:
 
 
 
-        await message.reply("😇 ممنون از همکاری شما بعد از بررسی صحت جزوه شما شما به ربات اضافه خواهد شد ",  
-
+        await message.reply("😇 ممنون از همکاری شما بعد از بررسی صحت جزوه شما شما به ربات اضافه خواهد شد ",
             components=
                     self.buttons.return_menu())
     async def send_soal(self, message):
-        await message.reply("لطفا درس مورد نظر را ارسال کنید",  
+        await message.reply("لطفا درس مورد نظر را ارسال کنید",
         components=
         self.buttons.return_doros())
         s = await self.bot.wait_for(event_name= "message")
@@ -124,7 +117,7 @@ class MessageManger:
 
 
 
-        await message.reply("😇 ممنون از همکاری شما بعد از بررسی صحت نمونه سوال شما به ربات اضافه خواهد شد ",  
+        await message.reply("😇 ممنون از همکاری شما بعد از بررسی صحت نمونه سوال شما به ربات اضافه خواهد شد ",
 
             components=
                     self.buttons.return_menu())
@@ -141,12 +134,12 @@ class MessageManger:
             #             ]))
 
         # else:
-            await message.reply("نوع فایل مورد نظر را انتخاب کنید 💌",  
+            await message.reply("نوع فایل مورد نظر را انتخاب کنید 💌",
             components= self.buttons.return_choose_file())
 
     async def get_send_files(self, message):
         # if taklif:
-            # await message.reply(" نوع فایل مورد نظر را انتخاب کنید 💌",  
+            # await message.reply(" نوع فایل مورد نظر را انتخاب کنید 💌",
 
             #     components=
             #     Components(keyboards= [ 
@@ -156,12 +149,12 @@ class MessageManger:
             #             ]))
 
         # else:
-            await message.reply("نوع فایل مورد نظر را انتخاب کنید 💌",  
+            await message.reply("نوع فایل مورد نظر را انتخاب کنید 💌",
             components= self.buttons.return_sends())
 
     async def get_jozve(self, message):
 
-        await message.reply("لطفا درس مورد نظر را ارسال کنید",  
+        await message.reply("لطفا درس مورد نظر را ارسال کنید",
             components= self.buttons.return_doros())
 
         s = await self.bot.wait_for(event_name= "message")
@@ -209,7 +202,6 @@ class MessageManger:
 
 
         await message.reply('''*به خانه بازگشتید*''',
-                
                 components=
                     self.buttons.return_menu()
 
@@ -217,7 +209,7 @@ class MessageManger:
             ) 
 
     async def get_nemonesoal(self, message):
-        await message.reply("لطفا درس مورد نظر را ارسال کنید",  
+        await message.reply("لطفا درس مورد نظر را ارسال کنید",
             components= self.buttons.return_doros())
 
         s = await self.bot.wait_for(event_name= "message")
@@ -258,14 +250,7 @@ class MessageManger:
 متاسفانه هیچ نمونه سوالی برای این درس موجود نیست 😒
 نظرت چیه اولین نفری باشی که جزوت رو ارسال میکنی؟🤩''')
 
-
-
-        
-
-
-
         await message.reply('''*به خانه بازگشتید*''',
-                
                 components=
                     self.buttons.return_menu()
 
@@ -300,9 +285,9 @@ class MessageManger:
             )
 
     async def bot_version(self, m):
-        await m.reply(F'''
+        await m.reply(f'''
 🔆🔆🔆🔆🔆🔆🔆🔆🔆
-نسخه ربات : {VERSION} 
+نسخه ربات : {VERSION}
 نام ربات : {NAME}
 تعداد کاربر : {USERS}
 🔆🔆🔆🔆🔆🔆🔆🔆🔆
