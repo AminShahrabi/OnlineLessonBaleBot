@@ -1,5 +1,5 @@
 import bale, asyncio
-from colorama import init, Fore, Back, Style
+from colorama import Fore
 
 class ADMINMessageManger:
     def __init__(self, db, bot):
@@ -14,7 +14,6 @@ class ADMINMessageManger:
                         ss = bale.Chat(i, title = i, username = i, first_name=i, last_name=i, _type = "pv")
                         await self.bot.send_message(ss, '''
 کلی جزوه و نمونه سوال ریاضی جالب جمع اوری و اپلود شد ، یه نگاه بنداز 😉
-
         با /start شروع کنید.
         ''')    
                     except:
