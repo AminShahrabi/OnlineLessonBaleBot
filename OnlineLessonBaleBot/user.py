@@ -22,7 +22,6 @@ class Users:
             return True
 
         return False
-        
 
     def is_data_open(self):
         return self.db.is_open
