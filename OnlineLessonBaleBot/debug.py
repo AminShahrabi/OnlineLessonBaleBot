@@ -1,4 +1,4 @@
-from colorama import init, Fore, Back, Style
+from colorama import init, Fore
 
 class Debug:
     def __init__(self):
@@ -8,7 +8,7 @@ class Debug:
 
     def started(self):
         if self.debug:
-            print(Fore.GREEN + f"BOT READY FOR USE ")
+            print(Fore.GREEN + "BOT READY FOR USE ")
 
     def print_errors(self, error, author):
         if self.debug:
