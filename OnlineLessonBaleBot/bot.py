@@ -50,10 +50,10 @@ class BaleBot(bale.Bot):
             try:
                 await self.mg.check_message(message)
 
-            except:
+            except Exception:
                 try:
                     self.Debuger.print_errors("REPLY MESSAGE (MAY BE INTERNAL)", message.author.username)
-                
+
                 except Exception:
                     self.Debuger.print_errors("CANT FIND AUTHOR ID", message.author.user_id)
 
