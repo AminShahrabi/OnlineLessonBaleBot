@@ -110,7 +110,7 @@ class MessageManger:
 
             with open("database/nemone_soal.txt", "a", encoding="utf-8")as f:
                 f.write(f"\n{d} + {lesson +' ' + onvan}" )
-        except:
+        except Exception:
             await message.reply(FALSE_FILE)
             return
 
@@ -159,7 +159,7 @@ class MessageManger:
 
         s = await self.bot.wait_for(event_name= "message")
         onvan = s.content
-        
+
         if onvan == "دفاعی":
             self.path = NOHOM + JOZVE + DEFAEI
 
