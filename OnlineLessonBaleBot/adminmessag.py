@@ -15,8 +15,8 @@ class ADMINMessageManger:
                         await self.bot.send_message(ss, '''
 کلی جزوه و نمونه سوال ریاضی جالب جمع اوری و اپلود شد ، یه نگاه بنداز 😉
         با /start شروع کنید.
-        ''')    
-                    except:
+''')
+                    except Exception:
                         try:
                             print(Fore.WHITE + f"ERROR SENDING MESSAGE TO {ss.username}")
 
@@ -28,5 +28,3 @@ class ADMINMessageManger:
             await asyncio.sleep(5)
             self.db.close_database()
             await self.bot.close()
-
-    
