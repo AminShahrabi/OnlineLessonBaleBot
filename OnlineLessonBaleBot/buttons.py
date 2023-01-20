@@ -1,8 +1,5 @@
 from bale import Components, InlineKeyboard
 from bale import Keyboard
-from regex import D
-from telegram import KeyboardButton
-
 class ButtonManager:
     def __init__(self, users):
         self.users = users
@@ -16,25 +13,24 @@ class ButtonManager:
                         [Keyboard("📋 تنظیمات"), Keyboard("📚 ادمین هستید")]])
         self.register_button = Components(inline_keyboards = [[InlineKeyboard("ثبت نام", callback_data = "register")]])
 
-        self.choose_file_button = Components(keyboards= [ 
-                    [Keyboard("جزوات"),Keyboard("نمونه سوالات")], 
+        self.choose_file_button = Components(keyboards= [
+                    [Keyboard("جزوات"),Keyboard("نمونه سوالات")],
                     [Keyboard("خانه")]])
 
-        self.doros_button = Components(keyboards= [ 
+        self.doros_button = Components(keyboards= [
                 [Keyboard("اجتماعی"),Keyboard("دفاعی"),Keyboard("فیزیک شیمی")],
                 [Keyboard("عربی"), Keyboard("قرآن"), Keyboard("زیست")],
                 [Keyboard("ادبیات"), Keyboard("دفاعی"), Keyboard("آزمایشگاه")],
                 [Keyboard("رایانه"), Keyboard("حساب"), Keyboard("خانه")]
                     ])
         
-        self.send_menu = Components(keyboards= [ 
+        self.send_menu = Components(keyboards= [
                     [Keyboard("جزوه"),Keyboard("نمونه سوال")],
                     [Keyboard("خانه")]
 
                         ])
 
         self.home = Components(keyboards= [ Keyboard("خانه")
-
                 ])
 
 
