@@ -60,7 +60,7 @@ class Database:
         self.Debuger.print_ticket(message)
         self.commit()
         self.close_database()
-         
+
     def get_notif(self, c):
         self.open_database()
         self.cur.execute("SELECT * FROM users")
@@ -99,12 +99,12 @@ class Database:
         self.close_database()
         return ac
 
-    def get_notif_id(self, id):
+    def get_notif_id(self, user_id):
         self.open_database()
         self.cur.execute("SELECT * FROM users")
         s = self.cur.fetchall()
         for i in s:
-            if i[5] == "Yes" and i[0] == id:
+            if i[5] == "Yes" and i[0] == user_id:
                 
                 self.close_database()
                 return True
