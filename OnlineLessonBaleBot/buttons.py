@@ -1,5 +1,6 @@
 from bale import Components, InlineKeyboard
 from bale import Keyboard
+
 class ButtonManager:
     def __init__(self, users):
         self.users = users
@@ -21,9 +22,7 @@ class ButtonManager:
                 [Keyboard("اجتماعی"),Keyboard("دفاعی"),Keyboard("فیزیک شیمی")],
                 [Keyboard("عربی"), Keyboard("قرآن"), Keyboard("زیست")],
                 [Keyboard("ادبیات"), Keyboard("دفاعی"), Keyboard("آزمایشگاه")],
-                [Keyboard("رایانه"), Keyboard("حساب"), Keyboard("خانه")]
-                    ])
-        
+                [Keyboard("رایانه"), Keyboard("حساب"), Keyboard("خانه")]])
         self.send_menu = Components(keyboards= [
                     [Keyboard("جزوه"),Keyboard("نمونه سوال")],
                     [Keyboard("خانه")]
@@ -54,7 +53,7 @@ class ButtonManager:
     def return_sends(self):
         return self.send_menu
 
-    def lessons_buttons(self, path):
+    def lessons_buttons(path):
         try:
             keyboardbuttons = []
             with open(path, "r", encoding="utf-8")as f:
@@ -64,12 +63,12 @@ class ButtonManager:
                     keyboardbuttons.append(InlineKeyboard(s[1], callback_data=s[0]))
             return keyboardbuttons
 
-        except Exception as e:
+        except Exception:
             print("COUDNT ADD FILE BUTTONS (MAY BE CAUSE OF ENTER)", "")
 
 
     def retutn_setting_keys(self, s):
         self.settings_key = Components(inline_keyboards= [InlineKeyboard(f"اعلان ها : {s}", callback_data = "notifchange")
-            , InlineKeyboard(f"قوانین", callback_data = "rule")])
+            , InlineKeyboard("قوانین", callback_data = "rule")])
 
         return self.settings_key
