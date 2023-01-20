@@ -1,6 +1,6 @@
 from bale import Components
-from constants import *
-from constants import *
+from constants import DEFAEI, JOZVE, NOHOM, NEMONESOAL, AZMAYESH, FISH, ZIST, ADABI, FALSE_FILE \
+    ,DEFAEI, HESAB, GHORAN, VERSION, NAME, USERS
 
 class MessageManger:
     def __init__(self, button, bot, database):
@@ -41,7 +41,7 @@ class MessageManger:
 
 
     async def send_jozve(self, message):
-        await message.reply("لطفا درس مورد نظر را ارسال کنید",  
+        await message.reply("لطفا درس مورد نظر را ارسال کنید",
         components=
         self.buttons.return_doros())
         s = await self.bot.wait_for(event_name= "message")
@@ -260,7 +260,7 @@ class MessageManger:
 
     async def send_ticket(self, message):
         await message.reply(
-        f'''لطفا پیام خودتان را برای ارسال به ادمین ارسال کنید 😇
+        '''لطفا پیام خودتان را برای ارسال به ادمین ارسال کنید 😇
         ''')
         s = await self.bot.wait_for(event_name= "message")
         onvan = s.content
