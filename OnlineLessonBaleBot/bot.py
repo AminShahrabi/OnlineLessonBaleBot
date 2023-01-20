@@ -1,6 +1,6 @@
 import bale
-from user import *
-from constants import *
+from user import Users
+from constants import START_TEXT, MAKE_ACCOUNT_TEXT, RULES
 from buttons import ButtonManager
 from database.database import Database
 from updates.messages import MessageManger
@@ -27,14 +27,13 @@ class BaleBot(bale.Bot):
         self.add_event(bale.EventType.MESSAGE, self.on_message)
         self.add_event(bale.EventType.CALLBACK, self.on_callback)
         self.add_event(bale.EventType.UPDATE, self.on_update)
-        
     async def on_ready(self):
         self.Debuger.started()
 
     async def on_message(self,  message: bale.Message):
         try:
             self.users_id = message.author.user_id
-        except:
+        except Exception:
             self.Debuger.print_errors("GETTING USER ID IN ON_MESSAGE", "NONE")
 
         if message.content in ["/start", "خانه", "📎 اپدیت ربات"]:
@@ -55,7 +54,7 @@ class BaleBot(bale.Bot):
                 try:
                     self.Debuger.print_errors("REPLY MESSAGE (MAY BE INTERNAL)", message.author.username)
                 
-                except:
+                except Exception:
                     self.Debuger.print_errors("CANT FIND AUTHOR ID", message.author.user_id)
 
 
@@ -66,7 +65,7 @@ class BaleBot(bale.Bot):
                         await self.Amg.check_msg(message)
                     self.database.close_database()
 
-            except:
+            except Exception:
                 self.Debuger.print_sent_file(message)
                 
             
@@ -84,7 +83,7 @@ class BaleBot(bale.Bot):
     async def on_update(self, update):
         try:
             self.Debuger.print_update(update)
-        except:
+        except Exception:
             self.Debuger.print_errors("ERROR GETTING UPDATE (MAY BE INTERNAL)", "NONE")
 
     async def on_callback(self, callback: bale.CallbackQuery):
@@ -106,11 +105,11 @@ class BaleBot(bale.Bot):
             else:
                 await self.cm.get_files(self.mg.path, callback)
 
-        except:
+        except Exception:
             try:
                 user = callback.user.username
                 self.Debuger.print_errors("CALLBACK ERROR MAY BE INTERNAL", user)
-            except:
+            except Exception:
                 self.Debuger.print_errors("CALLBACK USERNAME NOT FOUND", "NONE")
 
             
