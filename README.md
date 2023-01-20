@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4303cc09393e4fd4b14272227c7b7498)](https://www.codacy.com/gh/Codingwithamin/OnlineLessonBaleBot/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Codingwithamin/OnlineLessonBaleBot&amp;utm_campaign=Badge_Grade)
+
 # OnlineLessonBaleBot
 A Bot Made in python for Bale and sharing lesson questions and quiz with other students.
 
