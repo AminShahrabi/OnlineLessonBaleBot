@@ -67,7 +67,6 @@ class Database:
         s = self.cur.fetchall()
         for i in s:
             if i[5] == "Yes" and i[0] == c.user_id:
-                
                 return True
 
             elif i[5] == "No" and i[0] ==  c.user_id:
