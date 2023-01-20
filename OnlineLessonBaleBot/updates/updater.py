@@ -20,7 +20,7 @@ class RateLimitUser:
             self.useage -= 1 if self.useage == 0 else self.useage - 1
 
         self.last_use = time
-        
+
     def is_rate_limited(self) -> bool:
         if self.useage > 2:
             if datetime.now() < (self.last_use + timedelta(minutes=5)):
