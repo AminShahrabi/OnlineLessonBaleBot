@@ -11,7 +11,7 @@ class Users:
             if placeholder is not None:
                 return True
             return False
-        
+
         except Exception as e:
             print(e)
 
