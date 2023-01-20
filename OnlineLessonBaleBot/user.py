@@ -1,4 +1,3 @@
-from sympy import im
 from constants import *
 class Users:
     def __init__(self,db):
@@ -6,7 +5,7 @@ class Users:
 
     def is_active(self, id):
         try:
-            self.db.cur.execute(f"SELECT * from users WHERE id = {id}")
+            self.db.cur.execute("SELECT * from users WHERE id = ?", [str(id)])
             placeholder = self.db.cur.fetchone()
             if placeholder is not None:
                 return True
@@ -16,12 +15,11 @@ class Users:
             print(e)
 
     def is_admin(self, id):
-        self.db.cur.execute(f"SELECT * from users WHERE id = {id}")
+        self.db.cur.execute("SELECT * from users WHERE id = ?", [str(id)])
         placeholder = self.db.cur.fetchone()
         if placeholder[6] == "admin":
             return True
-        # if placeholder is not None:
-        #     return True 
+
         return False
         
 
@@ -40,7 +38,7 @@ class Users:
                 return ALREADY_EXIST
 
         if ac == 0:
-            self.db.cur.execute(f"INSERT INTO users VALUES ('{message.user.user_id}', '{message.user.first_name}', 'None', 'No' , 1, 'Yes', 'No')")
+            self.db.cur.execute(f"INSERT INTO users VALUES (?,?,?,?,?,?,?)", (message.user.user_id, message.user.first_name, 'None', 'No' , 1, 'Yes', 'No'))
             self.db.commit()
             return SENT_ACCOUNT
 
