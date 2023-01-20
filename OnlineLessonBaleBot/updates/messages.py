@@ -1,6 +1,6 @@
 from bale import Components
 from constants import DEFAEI, JOZVE, NOHOM, NEMONESOAL, AZMAYESH, FISH, ZIST, ADABI, FALSE_FILE \
-    ,DEFAEI, HESAB, GHORAN, VERSION, NAME, USERS
+    , HESAB, GHORAN, VERSION, NAME, USERS
 
 class MessageManger:
     def __init__(self, button, bot, database):
@@ -124,11 +124,11 @@ class MessageManger:
 
     async def jozve_menu(self, message):
         # if taklif:
-            # await message.reply(" نوع فایل مورد نظر را انتخاب کنید 💌",  
+            # await message.reply(" نوع فایل مورد نظر را انتخاب کنید 💌",
 
             #     components=
-            #     Components(keyboards= [ 
-            #         [Keyboard("جزوات"),Keyboard("نمونه سوالات"),Keyboard("تکالیف")], 
+            #     Components(keyboards= [
+            #         [Keyboard("جزوات"),Keyboard("نمونه سوالات"),Keyboard("تکالیف")],
             #         [Keyboard("خانه")],
 
             #             ]))
@@ -195,18 +195,9 @@ class MessageManger:
 متاسفانه هیچ جزوه ای برای این درس موجود نیست 😒
 نظرت چیه اولین نفری باشی که جزوت رو ارسال میکنی؟🤩''')
 
-
-
-        
-
-
-
         await message.reply('''*به خانه بازگشتید*''',
                 components=
-                    self.buttons.return_menu()
-
-                
-            ) 
+                    self.buttons.return_menu()) 
 
     async def get_nemonesoal(self, message):
         await message.reply("لطفا درس مورد نظر را ارسال کنید",
