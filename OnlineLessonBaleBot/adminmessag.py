@@ -20,7 +20,7 @@ class ADMINMessageManger:
                         try:
                             print(Fore.WHITE + f"ERROR SENDING MESSAGE TO {ss.username}")
 
-                        except:
+                        except Exception:
                             print(Fore.WHITE +f"CANT FIND CHAT ID USERNAME WITH {i}")
 
         if mg.content.startswith("/reload"):
