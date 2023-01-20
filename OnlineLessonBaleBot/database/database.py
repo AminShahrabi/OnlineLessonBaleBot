@@ -1,6 +1,4 @@
 import sqlite3
-from colorama import init, Fore, Back, Style
-
 class Database:
     def __init__(self, debuger):
         self.path = "database/bot.db"
@@ -29,7 +27,7 @@ class Database:
         self.open_database()
         self.cur.execute('''
         CREATE TABLE IF NOT EXISTS Log (
-            id TEXT, 
+            id TEXT,
             username TEXT,
             firstname TEXT
         );
@@ -42,11 +40,10 @@ class Database:
         self.open_database()
         self.cur.execute('''
         CREATE TABLE IF NOT EXISTS Ticket (
-            message TEXT, 
+            message TEXT,
             username TEXT,
             firstname TEXT
         );
-        
         ''')
         self.commit()
         self.close_database()
@@ -66,7 +63,7 @@ class Database:
          
     def get_notif(self, c):
         self.open_database()
-        self.cur.execute(f"SELECT * FROM users")
+        self.cur.execute("SELECT * FROM users")
         s = self.cur.fetchall()
         for i in s:
             if i[5] == "Yes" and i[0] == c.user_id:
@@ -82,10 +79,10 @@ class Database:
 
         a = self.get_notif(c)
         if a :
-            self.cur.execute(f"UPDATE users SET notif = ? WHERE id = ?", ("No", c.user_id))
+            self.cur.execute("UPDATE users SET notif = ? WHERE id = ?", ("No", c.user_id))
 
         else:
-            self.cur.execute(f"UPDATE users SET notif = ? WHERE id = ?", ("Yes", c.user_id))
+            self.cur.execute("UPDATE users SET notif = ? WHERE id = ?", ("Yes", c.user_id))
 
 
         self.commit()
@@ -94,7 +91,7 @@ class Database:
     def get_ids(self):
         ac = []
         self.open_database()
-        self.cur.execute(f"SELECT * FROM users")
+        self.cur.execute("SELECT * FROM users")
         s = self.cur.fetchall()
         for i in s:
             ac.append(i[0])
@@ -104,7 +101,7 @@ class Database:
 
     def get_notif_id(self, id):
         self.open_database()
-        self.cur.execute(f"SELECT * FROM users")
+        self.cur.execute("SELECT * FROM users")
         s = self.cur.fetchall()
         for i in s:
             if i[5] == "Yes" and i[0] == id:
