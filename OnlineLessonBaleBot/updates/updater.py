@@ -1,6 +1,6 @@
 from bale import Update, User,Updater
 from datetime import timedelta, datetime
-from constants import *
+from constants import SPAM
 from colorama import Fore
 
 class RateLimitUser:
@@ -18,7 +18,7 @@ class RateLimitUser:
                 print(Fore.BLUE + F"BANNED USER {self.user.username}")
         else:
             self.useage -= 1 if self.useage == 0 else self.useage - 1
-            
+
         self.last_use = time
         
     def is_rate_limited(self) -> bool:
