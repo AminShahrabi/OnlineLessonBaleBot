@@ -2,9 +2,9 @@
 A Bot Made in python for Bale and sharing lesson questions and quiz with other students.
 
 ## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
+*   [General info](#general-info)
+*   [Technologies](#technologies)
+*   [Setup](#setup)
 
 ## General info
 OnlineLessonBaleBot is a Bale Messanger bot used for sharing quizes and tests and other school things online  with out any problems 😎
