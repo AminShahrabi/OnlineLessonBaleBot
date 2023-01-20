@@ -12,7 +12,7 @@ class MessageManger:
         m = message.content
         if m == "📃 نمونه سوالات و جزوات":
             await self.jozve_menu(message)
-        
+
         elif m == "📝 ارسال فایل":
             await self.get_send_files(message)
 
@@ -71,7 +71,7 @@ class MessageManger:
 
             with open("database/jozve.txt", "a", encoding="utf-8")as f:
                 f.write(f"\n{d} + {lesson +' ' + onvan}" )
-        except:
+        except Exception:
             await message.reply(FALSE_FILE)
             return
 
@@ -142,8 +142,8 @@ class MessageManger:
             # await message.reply(" نوع فایل مورد نظر را انتخاب کنید 💌",
 
             #     components=
-            #     Components(keyboards= [ 
-            #         [Keyboard("جزوات"),Keyboard("نمونه سوالات"),Keyboard("تکالیف")], 
+            #     Components(keyboards= [
+            #         [Keyboard("جزوات"),Keyboard("نمونه سوالات"),Keyboard("تکالیف")],
             #         [Keyboard("خانه")],
 
             #             ]))
@@ -197,7 +197,7 @@ class MessageManger:
 
         await message.reply('''*به خانه بازگشتید*''',
                 components=
-                    self.buttons.return_menu()) 
+                    self.buttons.return_menu())
 
     async def get_nemonesoal(self, message):
         await message.reply("لطفا درس مورد نظر را ارسال کنید",
@@ -243,10 +243,7 @@ class MessageManger:
 
         await message.reply('''*به خانه بازگشتید*''',
                 components=
-                    self.buttons.return_menu()
-
-                
-            ) 
+                    self.buttons.return_menu())
 
 
     async def send_ticket(self, message):
