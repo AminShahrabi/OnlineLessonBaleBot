@@ -1,7 +1,7 @@
 from bale import *
 from datetime import timedelta, datetime
 from constants import *
-from colorama import init, Fore, Back, Style
+from colorama import Fore
 
 class RateLimitUser:
     def __init__(self, user: User) -> None:
