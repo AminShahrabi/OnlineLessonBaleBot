@@ -22,7 +22,7 @@ with having options :
 Project is created with:
 *   Python version: 3.10.3
 *   python-bale-bot 2.4.2
-*   [python-bale-bot]([https://](https://github.com/python-bale-bot/python-bale-bot))
+*   [python-bale-bot](https://github.com/python-bale-bot/python-bale-bot))
 	
 ## Setup
 To run and test the bot , download project files and run the run.bat or bot.py file 😁
