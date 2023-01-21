@@ -2,8 +2,9 @@ from bale import Components, InlineKeyboard
 from bale import Keyboard
 
 class ButtonManager:
-    def __init__(self, users):
+    def __init__(self, users,debug):
         self.users = users
+        self.debuger = debug
 
         self.menu_button = Components(keyboards= [[Keyboard("📝 ارسال فایل"),Keyboard("📃 نمونه سوالات و جزوات")],
                         [Keyboard("📁 ارسال تیکت"), Keyboard("📎 اپدیت ربات")],
@@ -53,7 +54,7 @@ class ButtonManager:
     def return_sends(self):
         return self.send_menu
 
-    def lessons_buttons(path):
+    def lessons_buttons(self, path):
         try:
             keyboardbuttons = []
             with open(path, "r", encoding="utf-8")as f:
@@ -64,7 +65,7 @@ class ButtonManager:
             return keyboardbuttons
 
         except Exception:
-            print("COUDNT ADD FILE BUTTONS (MAY BE CAUSE OF ENTER)", "")
+            self.debuger.print_errors("COUDNT ADD FILE BUTTONS (MAY BE CAUSE OF ENTER)", "None")
 
 
     def retutn_setting_keys(self, s):
