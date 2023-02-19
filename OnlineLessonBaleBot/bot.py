@@ -20,7 +20,7 @@ class BaleBot(bale.Bot):
         self.database = Database(self.Debuger)
         self.cm = CallbackManager()
         self.user_manager = Users(self.database)
-        self.button_manager = ButtonManager(self.user_manager)
+        self.button_manager = ButtonManager(self.user_manager, self.Debuger)
         self.mg = MessageManger(self.button_manager, self.bot, self.database)
         self.Amg = ADMINMessageManger(self.database, self.bot)
         self.add_event(bale.EventType.READY, self.on_ready)
